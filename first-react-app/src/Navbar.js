@@ -1,5 +1,6 @@
 import React from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 
 class Navbar extends React.Component {
     render () {
@@ -8,9 +9,9 @@ class Navbar extends React.Component {
               <nav className="navbar fixed-top navbar-light">
                 <div className="container-fluid">
                 <i className="fas fa-coins coin"></i>
-                    <a className="navbar-brand" href="#"><span>Current Currency</span></a>
-                    <a className="navbar-text" href="#"><span>Exchange</span></a>
-                    <a className="navbar-text" href="#"><span>Chart</span></a>
+                    <Link className="navbar-brand" to="/"><span>Current Currency</span></Link>
+                    <Link className="navbar-text" to="/"><span>Exchange</span></Link>
+                    <Link className="navbar-text" to="/chart"><span>Chart</span></Link>
                 </div>
               </nav>
             </div>

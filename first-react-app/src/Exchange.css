@@ -1,0 +1,26 @@
+.back-ground {
+    background-color: #8cb1d7;
+    height: 300px;
+    padding-top: 100px;
+}
+
+.holder {
+    background-color: white;
+    border-style: solid;
+    border-color: #8cb1d7;
+    height: 500px;
+    width: 100%;
+}
+
+.title {
+    display: inline-block;
+    color: #ededed;
+    background-color: #8cb1d7;
+    text-align: center;
+    justify-content: center;
+    font-size: 40px;
+    margin: 10px 0px 10px 0px;
+    padding: 5px 15px 5px 15px;
+}
+
+
