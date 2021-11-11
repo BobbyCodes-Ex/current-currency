@@ -1,0 +1,22 @@
+nav {
+    background-color: #ededed;
+}
+
+span {
+    color: #8cb1d7;
+    text-decoration: none;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.coin {
+    color: #8cb1d7; 
+    font-size: 50px;
+}
+
+.back-ground {
+    background-color: #8cb1d7;
+    height: 300px;
+}
