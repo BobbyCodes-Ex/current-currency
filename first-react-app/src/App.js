@@ -32,20 +32,22 @@ function App() {
           .then(res => res.json())
           .then(data => {
               const firstCurrency = Object.keys(data.rates)[0]
+              
               setCurrencyOptions([data.base, ...Object.keys(data.rates)])
+              
               setFromCurrency(data.base) 
               setToCurrency(firstCurrency)
               setExchangeRate(data.rates[firstCurrency])
           })
   }, [])
 
-  useEffect(() =>{
+  /*useEffect(() =>{
     if(fromCurrency != null && toCurrency != null) {
       fetch(`${base_URL}?base=${fromCurrency}&symbols=${toCurrency}`)
      .then(res => res.json())
      .then(data => setExchangeRate(data.rates[toCurrency]))
     }
-  }, [fromCurrency, toCurrency]) 
+  }, [fromCurrency, toCurrency]) */
 
   function handleFromAmountChange(e) {
     setAmount(e.target.value)
@@ -78,6 +80,14 @@ function App() {
             <Route path="/chart">
               <Chart
               currencyOptions={currencyOptions}
+              selectedCurrency={toCurrency}
+              selectedCurrency2={fromCurrency}
+              onChangeCurrency={e => setToCurrency(e.target.value)}
+              onChangeCurrency2={e => setFromCurrency(e.target.value)}
+              onChangeAmount={handleFromAmountChange}
+              onChangeAmount2={handleToAmountChange}
+              amount={fromAmount}
+              amount2={toAmount}
               />
             </Route>
           </Switch>
