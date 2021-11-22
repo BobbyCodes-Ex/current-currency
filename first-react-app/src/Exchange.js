@@ -31,7 +31,7 @@ function Exchange (props) {
                         </div>
                     <div className="row">
                         <div className="col col-lg-6">
-                            <div class="input-group mb-3">
+                            <div className="input-group mb-3">
                                 <label className="input-group-text" htmlFor="inputGroupSelect01">Currency</label>
                                 <select value={selectedCurrency2} onChange={onChangeCurrency2} className="form-select" id="inputGroupSelect01">
                                     {currencyOptions.map(option => (
@@ -56,13 +56,13 @@ function Exchange (props) {
                         <div className="col col-lg-6">
                             <div className="input-group mb-3">
                                 <label className="input-group-text" htmlFor="inputGroupSelect01">Amount</label>
-                                <input value={amount} onchange={onChangeAmount} id="inputGroupSelect01" type="number"></input>  
+                                <input value={amount} onChange={onChangeAmount} id="inputGroupSelect01" type="number"></input>  
                             </div>
                         </div>
                         <div className="col col-lg-6">
                             <div className="input-group mb-3">
                                 <label className="input-group-text" htmlFor="inputGroupSelect01">Amount</label>
-                                <input value={amount2} onchange={onChangeAmount2} id="inputGroupSelect01" type="number"></input>
+                                <input value={amount2} onChange={onChangeAmount2} id="inputGroupSelect01" type="number"></input>
                             </div>
                         </div>
                     </div>
