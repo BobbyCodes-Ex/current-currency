@@ -6,7 +6,7 @@ import Chart from './Chart';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 
-const base_URL = 'http://api.exchangeratesapi.io/v1/latest?access_key=2e1db2cc4355d1f21952fe535ea4e0d4'
+const base_URL = 'https://altexchangerateapi.herokuapp.com/latest?'
 const test_URL = 'http://api.exchangeratesapi.io/v1/latest'
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
       fetch(base_URL)
           .then(res => res.json())
           .then(data => {
-              const firstCurrency = Object.keys(data.rates)[0];
+              const firstCurrency = Object.keys(data.rates)[1];
               
               setCurrencyOptions([...Object.keys(data.rates)]);
               

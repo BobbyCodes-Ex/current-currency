@@ -6,18 +6,18 @@ function Chart(props) {
         currencyOptions,
         selectedCurrency,
         selectedCurrency2,
-        //onChangeCurrency,
-        //onChangeCurrency2,
+        onChangeCurrency,
+        onChangeCurrency2,
         amount,
         amount2,
-        //onChangeAmount,
+        onChangeAmount,
         onChangeAmount2
     } = props
 
 
     function addCurrency(e) {
         e.preventDefault()
-        console.log(selectedCurrency)
+        console.log(selectedCurrency2)
         
     }
    
@@ -46,7 +46,15 @@ function Chart(props) {
                             <div className="col col-6-lg chart-title">Rate</div>
                         </div>
                         <div className="row">
-                            <div className="col col-6-lg">{selectedCurrency2}</div>
+                        <div className="col col-lg-6">
+                            <div className="input-group mb-3">
+                                <select value={selectedCurrency2} onChange={onChangeCurrency2} className="form-select" id="inputGroupSelect01">
+                                    {currencyOptions.map(option => (
+                                        <option key={option} value={option}>{option}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
                             <div className="col col-6-lg">{amount}</div>
                         </div>
                         <div className="row">
