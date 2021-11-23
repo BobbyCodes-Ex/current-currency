@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Chart.css';
 
 function Chart(props) {
@@ -6,22 +6,19 @@ function Chart(props) {
         currencyOptions,
         selectedCurrency,
         selectedCurrency2,
-        onChangeCurrency,
-        onChangeCurrency2,
+        //onChangeCurrency,
+        //onChangeCurrency2,
         amount,
         amount2,
-        onChangeAmount,
+        //onChangeAmount,
         onChangeAmount2
     } = props
 
+
     function addCurrency(e) {
         e.preventDefault()
-        return (
-            <div className="row">
-                            <div className="col col-6-lg">{selectedCurrency}</div>
-                            <div className="col col-6-lg">{amount2}</div>
-                        </div>
-        )
+        console.log(selectedCurrency)
+        
     }
    
     return (
@@ -33,7 +30,7 @@ function Chart(props) {
                         <div className="title">Chart</div> 
                     </div>
                     <div className="currency-choice text-center">
-                        <form className="text-center">
+                        <form onSubmit={addCurrency} className="text-center">
                             <div className="input-group mb-3">
                                 <label className="input-group-text" htmlFor="inputGroupSelect01">Currency</label>
                                 <select className="form-select" id="inputGroupSelect01">
@@ -41,7 +38,7 @@ function Chart(props) {
                                         <option key={option} value={option}>{option}</option>
                                     ))}
                                 </select>
-                                <button type="button" className="btn btn-primary btn-sm" onClick={addCurrency}>Add</button>
+                                <button type="submit" className="btn btn-primary btn-sm">Add</button>
                             </div>
                         </form>
                         <div className="row">
@@ -65,7 +62,7 @@ function Chart(props) {
                                 </div>
                             ))}
                             </div>
-                            <div value={amount2} onchange={onChangeAmount2}  type="number">{amount2}</div>
+                            <div value={amount2} onChange={onChangeAmount2}  type="number">{amount2}</div>
                         </div>
                     </div>
                     </div>

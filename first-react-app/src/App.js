@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 
 const base_URL = 'http://api.exchangeratesapi.io/v1/latest?access_key=2e1db2cc4355d1f21952fe535ea4e0d4'
-
+const test_URL = 'http://api.exchangeratesapi.io/v1/latest'
 
 function App() {
 
@@ -18,6 +18,7 @@ function App() {
   const [amount, setAmount] = useState(1)
   const [amountInFromCurrency, setAmountInFromCurrency] = useState(true)
   const [initialFetch, setInitialFetch] = useState(false);
+
   
   let toAmount, fromAmount
   if (amountInFromCurrency) {
@@ -43,13 +44,13 @@ function App() {
           })
   }, [])
 
-  /*useEffect(() =>{
+  useEffect(() =>{
     if(fromCurrency != null && toCurrency != null) {
-      fetch(`${base_URL}?base=${fromCurrency}&symbols=${toCurrency}`)
+      fetch(`${base_URL}&base=${fromCurrency}&symbols=${toCurrency}`)
      .then(res => res.json())
      .then(data => setExchangeRate(data.rates[toCurrency]))
     }
-  }, [fromCurrency, toCurrency]) */
+  }, [fromCurrency, toCurrency]) 
 
   function handleFromAmountChange(e) {
     setAmount(e.target.value)
