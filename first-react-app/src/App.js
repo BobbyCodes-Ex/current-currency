@@ -18,6 +18,7 @@ function App() {
   const [amount, setAmount] = useState(1)
   const [amountInFromCurrency, setAmountInFromCurrency] = useState(true)
   const [initialFetch, setInitialFetch] = useState(false);
+  const [rates, setRates] = useState([]);
 
   
   let toAmount, fromAmount
@@ -36,6 +37,7 @@ function App() {
               const firstCurrency = Object.keys(data.rates)[1];
               
               setCurrencyOptions([...Object.keys(data.rates)]);
+              setRates(data.rates);
               
               setFromCurrency(data.base);
               setToCurrency(firstCurrency);
@@ -95,6 +97,7 @@ function App() {
               onChangeAmount2={handleToAmountChange}
               amount={fromAmount}
               amount2={toAmount}
+              rates={rates}
               />
             </Route>
           </Switch>
