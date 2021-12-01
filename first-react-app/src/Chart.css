@@ -4,12 +4,11 @@
     padding-top: 100px;
 }
 
-.holder {
+.holder-2 {
     background-color: white;
     border-style: solid;
     border-color: #8cb1d7;
-    height: 500px;
-    width: 100%;
+    margin-bottom: 300px;
 }
 
 .title {
