@@ -50,10 +50,14 @@ function App() {
     if(fromCurrency != null && toCurrency != null) {
       fetch(`${base_URL}&base=${fromCurrency}&symbols=${toCurrency}`)
      .then(res => res.json())
-     .then(data => setExchangeRate(data.rates[toCurrency]))
+     .then(data => {
+        setExchangeRate(data.rates[toCurrency])
+        
+      })
     }
   }, [fromCurrency, toCurrency]) 
 
+  
   function handleFromAmountChange(e) {
     setAmount(e.target.value)
     setAmountInFromCurrency(true)
@@ -65,7 +69,7 @@ function App() {
   }
 
   if (!initialFetch) {
-    return <div>loading</div>;
+    return <div>Loading...</div>;
   }
 
   return (
@@ -91,8 +95,16 @@ function App() {
               currencyOptions={currencyOptions}
               selectedCurrency={toCurrency}
               selectedCurrency2={fromCurrency}
-              onChangeCurrency={e => setToCurrency(e.target.value)}
-              onChangeCurrency2={e => setFromCurrency(e.target.value)}
+              //onChangeCurrency={e => setToCurrency(e.target.value)}
+              onChangeCurrency2={e => {
+                setFromCurrency(e.target.value)
+                fetch(`${base_URL}&base=${fromCurrency}`)
+                  .then(res => res.json())
+                  .then(data => {
+                    setRates(data.rates)
+                  })
+                }
+                }
               onChangeAmount={handleFromAmountChange}
               onChangeAmount2={handleToAmountChange}
               amount={fromAmount}

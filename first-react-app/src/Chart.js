@@ -41,8 +41,8 @@ function Chart(props) {
                                 <div className="col col-lg-6">
                                     <div className="input-group mb-3">
                                         <select value={selectedCurrency2} onChange={onChangeCurrency2} className="text-center form-select" id="inputGroupSelect01">
-                                            {currencyOptions.map(option => (
-                                            <option key={option} value={option}>{option}</option>
+                                            {Object.keys(rates).map(sym => (
+                                            <option key={sym} value={sym}>{sym}</option>
                                             ))}
                                         </select>
                                     </div>
@@ -55,7 +55,7 @@ function Chart(props) {
                             </div>
                             <div className="row">
                                 {Object.keys(rates).map(sym => (
-                                <div className="col-12" key={sym}>
+                                <div className="col-12" value={selectedCurrency} onChange={onChangeCurrency}key={sym}>
                                     {sym}: {amount * rates[sym]}
                                 </div>
                                 ))}
