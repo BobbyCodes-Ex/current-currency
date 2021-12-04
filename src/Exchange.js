@@ -1,6 +1,6 @@
 import React from 'react';
 import './Exchange.css';
-
+import Footer from './Footer';
 
 
 function Exchange (props) {
@@ -68,6 +68,8 @@ function Exchange (props) {
                     </div>
                 </div>
             </div>
+            <div className="fixed-bottom"><Footer></Footer></div>
+           
         </div>
 
         </div>

@@ -57,7 +57,10 @@ function App() {
     }
   }, [fromCurrency, toCurrency]) 
 
-  
+  /*function format(number) {
+    return number.toFixed(4);
+  }*/
+
   function handleFromAmountChange(e) {
     setAmount(e.target.value)
     setAmountInFromCurrency(true)
@@ -67,6 +70,8 @@ function App() {
     setAmount(e.target.value)
     setAmountInFromCurrency(false)
   }
+
+  
 
   if (!initialFetch) {
     return <div>Loading...</div>;
@@ -113,7 +118,7 @@ function App() {
               />
             </Route>
           </Switch>
-        <Footer/>
+        
         
       </div>
     </Router>

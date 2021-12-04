@@ -4,7 +4,7 @@ import './Footer.css';
 class Footer extends React.Component {
     render () {
         return (
-            <div className="text-center fixed-bottom footer">
+            <div className="text-center footer">
                 <div>
                     @BobbyCodes-Ex
                 </div>
