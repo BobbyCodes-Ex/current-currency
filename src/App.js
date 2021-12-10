@@ -43,6 +43,7 @@ function App() {
               setToCurrency(firstCurrency);
               setExchangeRate(data.rates[firstCurrency]);
               setInitialFetch(true);
+              console.log(data.base)
           })
   }, [])
 
@@ -56,10 +57,6 @@ function App() {
       })
     }
   }, [fromCurrency, toCurrency]) 
-
-  /*function format(number) {
-    return number.toFixed(4);
-  }*/
 
   function handleFromAmountChange(e) {
     setAmount(e.target.value)
@@ -100,7 +97,7 @@ function App() {
               currencyOptions={currencyOptions}
               selectedCurrency={toCurrency}
               selectedCurrency2={fromCurrency}
-              //onChangeCurrency={e => setToCurrency(e.target.value)}
+              onChangeCurrency={e => setToCurrency(e.target.value)}
               onChangeCurrency2={e => {
                 setFromCurrency(e.target.value)
                 fetch(`${base_URL}&base=${fromCurrency}`)

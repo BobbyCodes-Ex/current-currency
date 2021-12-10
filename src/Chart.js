@@ -50,14 +50,14 @@ function Chart(props) {
                                 </div>
                                 <div className="col col-lg-6 text-center">
                                     <div className="input-group mb-3 text-center">
-                                        <input className="text-center"value={amount} onChange={onChangeAmount} id="inputGroupSelect01" type="number"></input>
+                                        <input className="text-center"value={amount} onChange={onChangeAmount} id="inputGroupSelect01" type="number" min="1"></input>
                                     </div>
                                 </div>
                             </div>
                             <div className="row">
                                 {Object.keys(rates).map(sym => (
                                 <div className="col-12" value={selectedCurrency} onChange={onChangeCurrency}key={sym}>
-                                    {sym}: {amount * rates[sym].toFixed(4)}
+                                    {sym}: {(amount * rates[sym]).toFixed(2)}
                                 </div>
                                 ))}
                             </div>

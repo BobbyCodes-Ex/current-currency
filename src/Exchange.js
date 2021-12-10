@@ -56,13 +56,13 @@ function Exchange (props) {
                         <div className="col col-lg-6">
                             <div className="input-group mb-3">
                                 <label className="input-group-text" htmlFor="inputGroupSelect01">Amount</label>
-                                <input value={amount} onChange={onChangeAmount} id="inputGroupSelect01" type="number"></input>  
+                                <input value={Number(amount).toFixed(2)} onChange={onChangeAmount}  id="inputGroupSelect01" type="number" min="1"></input>  
                             </div>
                         </div>
                         <div className="col col-lg-6">
                             <div className="input-group mb-3">
                                 <label className="input-group-text" htmlFor="inputGroupSelect01">Amount</label>
-                                <input value={amount2} onChange={onChangeAmount2} id="inputGroupSelect01" type="number"></input>
+                                <input value={Number(amount2).toFixed(2)} onChange={onChangeAmount2} id="inputGroupSelect01" type="number" min="1"></input>
                             </div>
                         </div>
                     </div>
