@@ -16,12 +16,6 @@ function Chart(props) {
         rates
     } = props
 
-
-    function addCurrency(e) {
-        e.preventDefault()
-        console.log(selectedCurrency2)
-        
-    }
    
     console.log(rates)
 

@@ -9,6 +9,7 @@ function Exchange (props) {
         currencyOptions,
         selectedCurrency,
         selectedCurrency2,
+        
         onChangeCurrency,
         onChangeCurrency2,
         amount,

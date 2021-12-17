@@ -19,6 +19,7 @@ function App() {
   const [amountInFromCurrency, setAmountInFromCurrency] = useState(true)
   const [initialFetch, setInitialFetch] = useState(false);
   const [rates, setRates] = useState([]);
+  
 
   
   let toAmount, fromAmount
@@ -35,13 +36,13 @@ function App() {
           .then(res => res.json())
           .then(data => {
               const firstCurrency = Object.keys(data.rates)[1];
-              
+              const secondCurrency = Object.keys(data.rates)[0];
               setCurrencyOptions([...Object.keys(data.rates)]);
               setRates(data.rates);
               
-              setFromCurrency(data.base);
+              setFromCurrency(secondCurrency);
               setToCurrency(firstCurrency);
-              setExchangeRate(data.rates[firstCurrency]);
+              setExchangeRate(data.base[firstCurrency]);
               setInitialFetch(true);
               console.log(data.base)
           })
@@ -84,6 +85,7 @@ function App() {
               currencyOptions={currencyOptions}
               selectedCurrency={toCurrency}
               selectedCurrency2={fromCurrency}
+              
               onChangeCurrency={e => setToCurrency(e.target.value)}
               onChangeCurrency2={e => setFromCurrency(e.target.value)}
               onChangeAmount={handleFromAmountChange}
