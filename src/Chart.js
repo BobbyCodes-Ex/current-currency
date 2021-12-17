@@ -65,8 +65,8 @@ function Chart(props) {
                   </div>
                 </div>
                 <div className="col col-lg-6 text-center">
-                  <div className="input-group mb-3 text-center">
-                    <input className="text-center"value={amount} onChange={onChangeAmount} id="inputGroupSelect01" type="number" min="1"></input>
+                  <div className="input-group mb-3 text-center me-auto">
+                    <input className="text-center inputNumber"value={amount} onChange={onChangeAmount} id="inputGroupSelect01" type="number" min="1"></input>
                   </div>
                 </div>
               </div>
