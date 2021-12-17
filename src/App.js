@@ -95,26 +95,7 @@ function App() {
               />
             </Route>
             <Route path="/chart">
-              <Chart
-              currencyOptions={currencyOptions}
-              selectedCurrency={toCurrency}
-              selectedCurrency2={fromCurrency}
-              onChangeCurrency={e => setToCurrency(e.target.value)}
-              onChangeCurrency2={e => {
-                setFromCurrency(e.target.value)
-                fetch(`${base_URL}&base=${fromCurrency}`)
-                  .then(res => res.json())
-                  .then(data => {
-                    setRates(data.rates)
-                  })
-                }
-                }
-              onChangeAmount={handleFromAmountChange}
-              onChangeAmount2={handleToAmountChange}
-              amount={fromAmount}
-              amount2={toAmount}
-              rates={rates}
-              />
+              <Chart />
             </Route>
           </Switch>
         
