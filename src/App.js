@@ -90,8 +90,8 @@ function App() {
               onChangeCurrency2={e => setFromCurrency(e.target.value)}
               onChangeAmount={handleFromAmountChange}
               onChangeAmount2={handleToAmountChange}
-              amount={fromAmount}
-              amount2={toAmount}
+              amount={fromAmount ? Number(fromAmount).toFixed(2) : fromAmount = ''}
+              amount2={toAmount ? Number(toAmount).toFixed(2) : toAmount = ''}
               />
             </Route>
             <Route path="/chart">
