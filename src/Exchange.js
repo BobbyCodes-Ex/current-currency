@@ -5,13 +5,13 @@ import Footer from './Footer';
 const base_URL = 'https://altexchangerateapi.herokuapp.com/latest?'
 const test_URL = 'http://api.exchangeratesapi.io/v1/latest'
 
-function Exchange (props) {
+function Exchange () {
 
   const [currencyOptions, setCurrencyOptions] = useState([])
   const [fromCurrency, setFromCurrency] = useState()
   const [toCurrency, setToCurrency] = useState()
   const [exchangeRate, setExchangeRate] = useState()
-  const [fromAmount, setFromAmount] = useState(1)
+  const [fromAmount, setFromAmount] = useState()
   const [toAmount, setToAmount] = useState(true)
   const [initialFetch, setInitialFetch] = useState(false);
   const [rates, setRates] = useState([]);
