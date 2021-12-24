@@ -2,7 +2,7 @@ import './App.css';
 import Footer from './Footer';
 import Navbar from './Navbar';
 import Exchange from './Exchange';
-import Chart from './Chart';
+import RatesTable from './RatesTable';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 
@@ -19,7 +19,7 @@ function App() {
               <Exchange />
             </Route>
             <Route path="/chart">
-              <Chart />
+              <RatesTable />
             </Route>
           </Switch>
         

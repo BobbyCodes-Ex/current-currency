@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import './Chart.css';
+import './RatesTable.css';
 import Footer from './Footer';
 
 const base_URL = 'https://altexchangerateapi.herokuapp.com/latest?'
 
-function Chart(props) {
+function RatesTable(props) {
 
   const [currencyOptions, setCurrencyOptions] = useState([]);
   
@@ -91,4 +91,4 @@ function Chart(props) {
 
 }
 
-export default Chart
+export default RatesTable
