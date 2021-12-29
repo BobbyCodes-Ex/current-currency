@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import Chart from 'chart.js/auto';
 import './Exchange.css';
 import Footer from './Footer';
-import LineGraph from './LineGraph';
+import { checkStatus, json } from './utils/fetchUtils';
 
 const base_URL = 'https://altexchangerateapi.herokuapp.com/latest?'
 const test_URL = 'http://api.exchangeratesapi.io/v1/latest'
+
+let chart;
 
 function Exchange () {
 
@@ -34,20 +37,6 @@ function Exchange () {
           })
   }, [])
 
-  useEffect(() =>{
-    if(fromCurrency != null && toCurrency != null) {
-      fetch(`${base_URL}&base=${fromCurrency}&symbols=${toCurrency}`)
-     .then(res => res.json())
-     .then(data => {
-        setExchangeRate(data.rates[toCurrency])
-        
-      })
-    }
-  }, [fromCurrency, toCurrency]) 
-
-  
-
-
   function handleFromAmountChange(e) {
     const amount = e.target.value;
     setFromAmount(amount)
@@ -60,7 +49,64 @@ function Exchange () {
     setFromAmount((amount / exchangeRate).toFixed(2))
   }
 
-  
+  const getHistoricalRates = (base, quote) => {
+    const endDate = new Date().toISOString().split('T')[0];
+    const startDate = new Date((new Date).getTime() - (30 * 24 * 60 * 60 * 1000)).toISOString().split('T')[0];
+    console.log('getH')
+
+    fetch(`https://altexchangerateapi.herokuapp.com/${startDate}..${endDate}?from=${base}&to=${quote}`)
+      .then(checkStatus)
+      .then(json)
+      .then(data => {
+        if (data.error) {
+          throw new Error(data.error);
+        }
+        console.log('a')
+
+        const chartLabels = Object.keys(data.rates);
+        const chartData = Object.values(data.rates).map(rate => rate[quote]);
+        const chartLabel = `${base}/${quote}`;
+        buildChart(chartLabels, chartData, chartLabel);
+      })
+      .catch(error => console.error(error.message));
+  }
+
+  const buildChart = (labels, data, label) => {
+    const chartObj = document.getElementById('chartCanvas').getContext("2d");
+    console.log(chartObj)
+    if (typeof chart !== "undefined") {
+      chart.destroy();
+    }
+
+    chart = new Chart(chartObj, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [
+          {
+            label: label,
+            data,
+            fill: false,
+            tension: 0,
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+      }
+    })
+  }
+
+  useEffect(() =>{
+    if(fromCurrency != null && toCurrency != null) {
+      fetch(`${base_URL}&base=${fromCurrency}&symbols=${toCurrency}`)
+     .then(res => res.json())
+     .then(data => {
+        setExchangeRate(data.rates[toCurrency])
+        getHistoricalRates(fromCurrency, toCurrency);
+      })
+    }
+  }, [fromCurrency, toCurrency]) 
 
   if (!initialFetch) {
     return <div>Loading...</div>;
@@ -72,7 +118,7 @@ function Exchange () {
       <div className="test">
         <div className="holder container">
           <div className="text-center">
-            <div className="title">Exchange</div> 
+            <div className="title">Exchange 2</div> 
           </div>
           <div className="row text-center">
               <div className="col col-6-lg exchange-title">My Currency</div>
@@ -116,6 +162,7 @@ function Exchange () {
             </div>
             <div></div>
           </div>
+          <canvas id="chartCanvas" />
         </div>
       </div>
       <div className="fixed-bottom"><Footer></Footer></div>
