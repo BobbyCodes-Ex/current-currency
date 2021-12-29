@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Exchange.css';
 import Footer from './Footer';
+import LineGraph from './LineGraph';
 
 const base_URL = 'https://altexchangerateapi.herokuapp.com/latest?'
 const test_URL = 'http://api.exchangeratesapi.io/v1/latest'
@@ -43,6 +44,9 @@ function Exchange () {
       })
     }
   }, [fromCurrency, toCurrency]) 
+
+  
+
 
   function handleFromAmountChange(e) {
     const amount = e.target.value;
@@ -110,6 +114,7 @@ function Exchange () {
                 <input value={toAmount || ''} onChange={handleToAmountChange} id="inputGroupSelect01" type="number" min="1"></input>
               </div>
             </div>
+            <div></div>
           </div>
         </div>
       </div>
