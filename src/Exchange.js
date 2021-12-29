@@ -165,7 +165,7 @@ function Exchange () {
           <canvas id="chartCanvas" />
         </div>
       </div>
-      <div className="fixed-bottom"><Footer></Footer></div>
+      <div className=""><Footer></Footer></div>
        
     </div>
 
