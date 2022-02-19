@@ -118,7 +118,7 @@ function Exchange () {
       <div className="test">
         <div className="holder container">
           <div className="text-center">
-            <div className="title">Exchange 2</div> 
+            <div className="title">Exchange</div> 
           </div>
           <div className="row text-center">
               <div className="col col-6-lg exchange-title">My Currency</div>
